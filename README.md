@@ -1,0 +1,2 @@
+# Logica
+ Método Mente Lógica
