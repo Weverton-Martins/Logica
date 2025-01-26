@@ -41,13 +41,13 @@ else:
 
 idade = int(input("Digite sua Idade: "))
 
-if idade == 0 and idade <= 12:
+if idade >= 0 and idade <= 12:
     print("Voce é Criança")
-elif idade == 13 or idade <= 17:
+elif idade >= 13 and idade <= 17:
     print("Voce é Adolecente")
-elif idade == 18 or idade <= 59:
+elif idade >= 18 and idade <= 59:
     print("Voce é Adulto")
-elif idade == 60:
+elif idade >= 60:
     print("Voce é Idoso")
 else:
     print("Idade invalida")
@@ -102,3 +102,33 @@ else:
             print(f"{cedula_5} x R$5")
         if cedula_2 > 0:
             print(f"{cedula_2} x R$2")
+
+# Aprovando emprestimo bancario
+
+# O empréstimo será aprovado se o valor da parcela não exceder 30% da renda mensal.
+
+valor_emprestimo = float(input("Qual o valor do emprestimo: "))
+renda_mensal = float(input("Informe sua renda mensal. Sálario bruto: "))
+num_parcelas = int(input("Qual o numero de parcelas: "))
+
+valor_parcela = valor_emprestimo / num_parcelas
+limite_parcela = valor_parcela * 0.30
+
+if valor_parcela <= limite_parcela:
+    print("Seu emprestimo foi aprovado!")
+    print(f"Valor da parcela: R${valor_parcela: .2f}")
+
+else:
+    print("Emprestimo negado!")
+    print(f"Valor da parcela: R${valor_parcela: .2f} exacede 30% da renda mensal.")
+
+
+# Calculadora de Tarifas de Táxi
+
+tarifa = 4
+percurso = float(input("Informe quantos KM será a corrida: "))
+
+taxa = percurso * 0.25
+valor_total = taxa + tarifa
+
+print(f"O valor total da corrida foi de: R${valor_total:.2f}")
