@@ -55,5 +55,26 @@ while True:
     else:
         print(("O numero é menor!"))
 
+#  Calculando Fatorial de um Número
+# Peça ao usuário um número inteiro positivo e calcule o fatorial desse número.
+# ● Fatorial de N (N!) é o produto de todos os números inteiros positivos de 1 até N.
+# ● Exemplo: 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+N = int(input("Informe um numero para ver seu fatorial: "))
+
+fatorial = 1
+
+if N < 0:
+    print("Não existe fatorial de numero negativo")
+
+elif N == 0 and N == 1:
+    print(f"Fatorial de {N} é 1")
+
+else:
+    for i in range(1, N+1):
+        fatorial *=i
+        print(f"Fatorial do numero {N} é: {fatorial}")
+
+
 
 
