@@ -52,3 +52,21 @@ if eh_primo(num):
     print(f"{num} é numero primo.")
 else:
     print(f"{num} não é numero primo.")
+
+#Crie uma função recursiva para calcular o fatorial de um número
+#criar uma função
+#definir o calculo
+#exiber o resultado 
+
+def fatorial(n):
+    if n == 0 or n ==1:
+        return 1
+    else:
+        return n * fatorial(n-1)
+
+num = int(input("DIgite um numero inteiro positivo: "))
+if num >= 0:
+    resultado = fatorial(num)
+    print(f"O fatorial de {num} é {resultado}")
+else:
+    print("Número inválido")
