@@ -14,6 +14,7 @@ decoracao = "--" * 7
 print(decoracao)
 
 
+# Escreva um programa que inverte a ordem das palavras em uma frase.
 frases = input("Difite uma frase:  ")
 palavras = frases.split()
 frase_invertida = " " .join(reversed(palavras))
