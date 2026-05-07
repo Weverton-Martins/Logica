@@ -1,72 +1,70 @@
-#Crie uma calculadora simples usando funções para somar, subtrair, multiplicar e dividir dois números.
+#1. Calculadora com Funções
+'''Crie uma calculadora simples usando funções para somar, subtrair, multiplicar e dividir dois
+números.'''
 
-def somar(a, b):
+'''def soma (a,b):
     return a + b
 
-def sub(a,b):
+def sub (a,b):
     return a - b
 
-def mult (a, b):
+def mult (a,b):
     return a * b
 
-def dividir (a,b):
+def div (a,b):
     if b != 0:
         return a / b
     else:
-        return "Erro: Divisão por zero!"
+        return 'ERRO, Divisão por zero!'
+    
+while True:
+    
+    num1 = float(input('Escolha o primeiro numero: '))
+    num2 = float(input('Escolha o segundo numero: '))
+    opcao = input('Escolha o que deseja realizar: (+, -, *, /): ')
 
-num1 = float(input("Informe um numero: "))
-num2 = float(input("Informe outro numero: "))
-operacao= input("Escolha uma operação (+, -, *, /): ")     
+    if opcao == '+':
+        result = soma(num1, num2)
+        print(f'A soma de {num1} + {num2}: {result}')
 
-if operacao == '+':
-    resultado = somar(num1, num2)
+    elif opcao == '-':
+        result = sub(num1,num2)
+        print(f'A subtração de {num1} - {num2}: {result}')
+        
+    elif opcao == '*':
+        result = mult(num1,num2)
+        print(f'A multiplicação de {num1} * {num2}: {result}')
 
-elif operacao == '-':
-    resultado = sub(num1, num2)
+    elif opcao == '/':
+        result = div(num1,num2)
+        print(f'A divisão de {num1} / {num2}: {result}')
 
-elif operacao == '*':
-    resultado = mult(num1, num2)
-
-elif operacao == '/':
-    resultado = dividir(num1, num2)
-
-else:
-    resultado = "Opração Invalida!"
-
-print("Resultado: ", resultado)
-
-#Crie uma função que verifica se um número é primo.
-
+    else:
+        result = 'Operação invalida!'
+    
+    continuar = input('Deseja realizar uma nova operação: (s/n): ').lower()
+    if continuar != 's':
+        print('Encerrando!')
+        break
+'''
+#2. Função para Verificar Número Primo
+'''Crie uma função que verifica se um número é primo.'''
+'''
 def eh_primo(numero):
-    if numero <=1:
+    if numero <= 1:
         return False
-    for i in range (2, numero):
+    for i in range(2, numero):
         if numero % i == 0:
             return False
     return True
-    
-num = int(input("Digite um numero inteiro: "))
 
-if eh_primo(num):
-    print(f"{num} é numero primo.")
+numero = int(input('Informe um número: '))
+
+if eh_primo(numero):
+    print(f'O {numero} é primo.')
 else:
-    print(f"{num} não é numero primo.")
+    print(f'O {numero} não é primo.')
+'''
+#3. Conversor de Temperaturas
+'''Crie funções para converter temperaturas entre Celsius, Fahrenheit e Kelvin.'''
 
-#Crie uma função recursiva para calcular o fatorial de um número
-#criar uma função
-#definir o calculo
-#exiber o resultado 
-
-def fatorial(n):
-    if n == 0 or n ==1:
-        return 1
-    else:
-        return n * fatorial(n-1)
-
-num = int(input("DIgite um numero inteiro positivo: "))
-if num >= 0:
-    resultado = fatorial(num)
-    print(f"O fatorial de {num} é {resultado}")
-else:
-    print("Número inválido")
