@@ -2,7 +2,7 @@
 '''Crie uma calculadora simples usando funções para somar, subtrair, multiplicar e dividir dois
 números.'''
 
-'''def soma (a,b):
+def soma (a,b):
     return a + b
 
 def sub (a,b):
@@ -18,7 +18,7 @@ def div (a,b):
         return 'ERRO, Divisão por zero!'
     
 while True:
-    
+    #começa o loop de escolhas
     num1 = float(input('Escolha o primeiro numero: '))
     num2 = float(input('Escolha o segundo numero: '))
     opcao = input('Escolha o que deseja realizar: (+, -, *, /): ')
@@ -41,15 +41,15 @@ while True:
 
     else:
         result = 'Operação invalida!'
-    
+    #condição se deseja continuar
     continuar = input('Deseja realizar uma nova operação: (s/n): ').lower()
     if continuar != 's':
         print('Encerrando!')
         break
-'''
+
 #2. Função para Verificar Número Primo
 '''Crie uma função que verifica se um número é primo.'''
-'''
+#condição de primo tem que ser maior que 1 e não pode ser par com excessão do 2 
 def eh_primo(numero):
     if numero <= 1:
         return False
@@ -64,10 +64,10 @@ if eh_primo(numero):
     print(f'O {numero} é primo.')
 else:
     print(f'O {numero} não é primo.')
-'''
+
 #3. Conversor de Temperaturas
 '''Crie funções para converter temperaturas entre Celsius, Fahrenheit e Kelvin.'''
-'''
+#funções de conversões
 def celcius_kelvin(c):
     kelvin = c + 273.15
     return kelvin
@@ -94,7 +94,7 @@ def kelvin_fahrenheit(k):
 
 valor = float(input('Informe uma temperatura: '))
 opcao = input('Qual seu tipo de temepratura informada (Celsius, Fahrenheit ou Kelvin): ').lower()
-
+#mostra as conversões possiveis pra cada temperatura
 if opcao == 'celsius':
     result = celcius_kelvin(valor)
     print(f'A temperatura {valor} em Celsius para Kelvin: {result}')
@@ -114,11 +114,11 @@ elif opcao == 'kelvin':
     print(f'A temperatura {valor} em Kelvin para Celcius: {result}')
 
 else:
-    print('Tipo invalido de temperatura..')'''
+    print('Tipo invalido de temperatura..')
 
 #4. Função Recursiva para Fatorial
 '''Crie uma função recursiva para calcular o fatorial de um número.'''
-
+#fatorial de 0 e 1 é 1
 def fatorial(n):
     if n == 0 or n ==1:
         return 1
@@ -137,4 +137,34 @@ else:
 '''Crie uma função que gera uma senha aleatória com tamanho especificado, contendo letras
 maiúsculas, minúsculas, números e símbolos.'''
 
+import random
+import string
 
+def gerar_senha(tamanho):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    #solda os caracteres na variavel resultado, e repete varias vezes mas não usa esse valor pra nada
+    resultado = ''.join(random.choice(caracteres) for _ in range(tamanho))
+    return resultado
+
+tamanho_senha = int(input('Informe qual o tamanho da senha: '))
+senha_gerada = gerar_senha(tamanho_senha)
+print('Senha gerada: ', senha_gerada)
+
+#Calculando a Distância Entre Dois Pontos
+'''Crie uma função que calcula a distância euclidiana entre dois pontos em um plano
+cartesiano.'''
+#funções matemáticas
+import math
+
+def distancia(ponto1,ponto2):
+    ponto1 = x1, y1
+    ponto2 = x2, y2
+    return math.sqrt((x2-x1)**2 + (y2-y1)**2) #sqrt raiz quadrada
+
+x1 = float(input('Digite x1: '))
+x2 = float(input('Digite x2: '))
+y1 = float(input('Digite y1: '))
+y2 = float(input('Digite y2: '))
+
+dist = distancia((x1, y1), (x2,y2))
+print(f'A distancia entre o pontos é: {dist}')
