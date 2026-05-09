@@ -1,30 +1,23 @@
+#Cód.principal
 import conversoes
-import random
 
-temperatura_c = float(input("Digite a temperatura em Celsius: "))
-temperatura_f = conversoes.celsius_para_fahrenheit(temperatura_c)
-temperatura_k = conversoes.celsius_para_kelvin(temperatura_c)
+opcoes = input('Informe qual conversão deseja realizar (C, F, K): ').lower()
+numero = float(input('Informe o valor da temperatura: '))
 
-print(f"{temperatura_c}°C equivalem a {temperatura_f} °F em Fahrenheit e {temperatura_k} K em Kelvin")
-
-
-def jogo_adivinha():
-    numero_secreto = random.randint(1, 100)
-    tentativas = 0
-
-    print("Bem-vindo ao jogo de Adivinhação")
-    print("Tente adivinhar o número de 1 a 100.")
-
-    while True:
-        palpite = int(input("Digite seu palpite: "))
-        tentativas += 1
-
-        if palpite == numero_secreto:
-            print(f"Parabens voce ganhou em {tentativas} tentativas")
-            break
-        elif palpite < numero_secreto:
-            print("Muito baixo! Tente novamente.")
-        else:
-            print("Muito alto! Tente novamente")
-      
-jogo_adivinha()
+if opcoes == 'c':
+    resultado1 = conversoes.celcius_kelvin(numero)
+    print(f'A conversão de {numero} em Celsius para Kelvin é {resultado1}')
+    resultado2 = conversoes.celcius_fahrenheit(numero)
+    print(f'A conversão de {numero} em Celsius para Fahrenheit é {resultado2}')
+elif opcoes == 'f':
+    resultado1 = conversoes.fahrenheit_celcius(numero)
+    print(f'A conversão de {numero} em Fahrenheit para Celsius é {resultado1}')
+    resultado2 = conversoes.fahrenheit_kelvins(numero)
+    print(f'A conversão de {numero} em Fahrenheit para Kelvin é {resultado2}')
+elif opcoes == 'k':
+    resultado1 = conversoes.kelvin_celcius(numero)
+    print(f'A conversão de {numero} em Kelvin para Celsius é {resultado1}')
+    resultado2 = conversoes.kelvin_fahrenheit(numero)
+    print(f'A conversão de {numero} em Kelvin para Fahrenheit é {resultado2}')
+else:
+    print('Erro!')
