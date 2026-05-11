@@ -44,9 +44,18 @@ temletrasm = any(c.islower() for c in senha) #Verifica se tem letra minuscula
 temNum = any(c.isdigit() for c in senha) #Verifica se tem numeros 0:9
 temSimbolos = any(not c.isalnum() for c in senha) #o esalnum verifica se tem num ou letras, not faz o contrario busca simbolos.
 
-if verifica_caracter and temletrasM and temletrasm and temNum and temSimbolos:
-    print(f'Senha Forte')
-else:
-    print('Senha Fraca, verifique os requiisitos: 8 caracteres, conter letras maiúsculas e minúsculas, números e símbolos!')
+erros = []
 
-# Melhorar código assima posteriormente
+if not verifica_caracter: erros.append('A senha deve ter pelo menos 8 caracteres')
+if not temletrasM: erros.append('A senha deve ter letras MAIÚSCULA')
+if not temletrasm: erros.append('A senha deve ter letras minúsculas')
+if not temNum: erros.append('A senha deve ter números')
+if not temSimbolos: erros.append('A senha deve ter símbolos')
+
+if not erros:
+    print('Senha forte')
+else:
+    print('Senha fraca')
+    for erro in erros:
+        print(f'- {erro}')
+
