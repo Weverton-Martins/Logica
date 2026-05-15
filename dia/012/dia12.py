@@ -86,4 +86,34 @@ try:
 except ValueError as erro:
     print(f'Incidente de segurança -> {erro}')
 
-    
+# 1. Calculadora com Tratamento de Exceções
+# Crie uma calculadora que realiza operações básicas e trata possíveis erros de entrada.
+
+def calculadora():
+
+    try:
+        numero1 = float(input('Informe o primeiro numero: '))
+        operacao = input('Informe o que ira realizar (+,-,*,/): ')
+        numero2 = float(input('Informe o primeiro numero: '))
+
+        if operacao == '+':
+            resultado = numero1 + numero2
+        elif operacao == '-':
+            resultado = numero1 - numero2
+        elif operacao == '*':
+            resultado = numero1 * numero2
+        elif operacao == '/':
+            resultado = numero1 / numero2
+        else:
+            raise ValueError('Operação invalida!')
+   
+    except ValueError as ve:
+        print(f'Erro de valor: {ve}')
+    except ZeroDivisionError:
+        print('Erro: Divisão por Zero')
+    else:
+        print(f'Resultado da operação: {resultado}')
+    finally:
+        print('Encerrando programa...')
+
+calculadora()
