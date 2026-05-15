@@ -1,5 +1,5 @@
 #Tratamento de Exceções
-'''try:
+try:
     numero = int(input('Digite um numero inteiro:'))
     resultado = 100/numero
 except ValueError: #Captura erro se a entrada não for numeros inteiros
@@ -9,7 +9,7 @@ except ZeroDivisionError: #Captura quando há tentativas de divisão por zero
 else:
     print(f'O resultado é {resultado}')
 finally:
-    print('Operação finalizada!')'''
+    print('Operação finalizada!')
 
 #1. Divisão Segura
 #Escreva um programa que solicite dois números ao usuário e realize a divisão do primeiro pelo segundo. Trate as possíveis exceções, como divisão por zero e entrada inválida.
@@ -61,3 +61,29 @@ def celsiusFahrenheit():
         print(f'A conversção de {temperatura}ºC para Fahrenheit é {fahrenheit:.2f}ºF')
     
 celsiusFahrenheit()
+
+#Exercício: O Verificador de Portas
+
+try:
+    porta = int(input('Digite um número de porta: '))
+
+except ValueError:
+    print('Erro: Digite apenas numeros!')
+finally:
+    print('Encerrado com sucesso!')
+''
+# Exercício: Alerta de Brute Force
+
+def analisar_login(tentativas):
+    if tentativas > 5:
+        raise ValueError('Alerta Crítico: Possível ataque de Brute Force detectado!')
+    return tentativas
+
+print('Monitoramento Logs iniciando...')
+try:
+    analisar_login(3)
+    print('Trafego Normal!')
+except ValueError as erro:
+    print(f'Incidente de segurança -> {erro}')
+
+    
