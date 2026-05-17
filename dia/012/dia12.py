@@ -1,4 +1,4 @@
-'''#Tratamento de Exceções
+#Tratamento de Exceções
 try:
     numero = int(input('Digite um numero inteiro:'))
     resultado = 100/numero
@@ -36,8 +36,8 @@ divisorNumero()
 def aberturaArquivo():
     nome_arquivo = input('Informe o nome do arquivo')
     try:
-        with open(nome_arquivo, 'r') as arquivo:
-            conteudo = arquivo.read()
+        with open(nome_arquivo, 'r') as arquivo: #garantia que seja fechado automaticamente
+            conteudo = arquivo.read() #ler o conteudoi
             print(conteudo)
     except FileNotFoundError:
         print('Erro: Arquivo não encontrado.')
@@ -76,14 +76,14 @@ finally:
 
 def analisar_login(tentativas):
     if tentativas > 5:
-        raise ValueError('Alerta Crítico: Possível ataque de Brute Force detectado!')
+        raise ValueError('Alerta Crítico: Possível ataque de Brute Force detectado!') #criando um erro intencional
     return tentativas
 
 print('Monitoramento Logs iniciando...')
 try:
     analisar_login(3)
     print('Trafego Normal!')
-except ValueError as erro:
+except ValueError as erro: #impreme o erro mencionado no raise
     print(f'Incidente de segurança -> {erro}')
 
 # 1. Calculadora com Tratamento de Exceções
@@ -117,11 +117,11 @@ def calculadora():
         print('Encerrando programa...')
 
 calculadora()
-'''
+
 #Manipulação Segura de Listas
 # Crie um programa que solicita ao usuário um índice e tenta acessar o elemento correspondente em uma lista predefinida. Trate exceções relacionadas a índices inválidos.
 
-frutas = ['banana', 'uva', 'pera', 'morango']
+frutas = ['banana', 'uva', 'pera', 'morango'] #lista pra relacionar aos indecis
 
 def seletor():
     try:
@@ -129,7 +129,7 @@ def seletor():
         elemeto = frutas[indice]
     except ValueError:
         print('Erro: informe um valor inteiro!')
-    except IndexError:
+    except IndexError: #erro de indice fora do range da lista acima 
         print('Indicie informado fora do range da lista!')
     else:
         print(f'A fruta do indice {indice} é {elemeto}')
@@ -140,12 +140,12 @@ seletor()
 
 #Sistema de Login Simples
 # Implemente um sistema de login que solicita um nome de usuário e senha. Se o nome de usuário não existir ou a senha estiver incorreta, lance uma exceção personalizada.
-class UsuarioNotFound(Exception):
+class UsuarioNotFound(Exception): #Criando meus proprios erros, ele deve herdar todos os comportamentos do erro padrão (Exception)
     pass
 
-class IncorrectPassword(Exception):
+class IncorrectPassword(Exception): #Criando meus proprios erros, ele deve herdar todos os comportamentos do erro padrão (Exception)
     pass
-
+#dicionario
 usuarios = {
     'admin' : 'admin', 
     'user' : '12345'
@@ -157,12 +157,12 @@ def login():
         usuario = input('Informe o usuario: ')
         senha = input('Informe a senha: ')
 
-        if usuario not in usuarios:
+        if usuario not in usuarios: #verificando se o user existe no dicionario
             raise UsuarioNotFound ('Usuario não encontrado!')
-        elif usuarios[usuario] != senha:
+        elif usuarios[usuario] != senha: # se a senha e compativel
             raise IncorrectPassword ('Senha incorreta!')
 
-    except UsuarioNotFound as e:
+    except UsuarioNotFound as e: #pega as mensagens escritas no raise
         print(f'Erro: {e}')
     
     except IncorrectPassword as e:
