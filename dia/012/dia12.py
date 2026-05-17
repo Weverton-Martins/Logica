@@ -1,4 +1,4 @@
-#Tratamento de Exceções
+'''#Tratamento de Exceções
 try:
     numero = int(input('Digite um numero inteiro:'))
     resultado = 100/numero
@@ -117,3 +117,59 @@ def calculadora():
         print('Encerrando programa...')
 
 calculadora()
+'''
+#Manipulação Segura de Listas
+# Crie um programa que solicita ao usuário um índice e tenta acessar o elemento correspondente em uma lista predefinida. Trate exceções relacionadas a índices inválidos.
+
+frutas = ['banana', 'uva', 'pera', 'morango']
+
+def seletor():
+    try:
+        indice = int(input('Informe o indice que deseja acessar: '))
+        elemeto = frutas[indice]
+    except ValueError:
+        print('Erro: informe um valor inteiro!')
+    except IndexError:
+        print('Indicie informado fora do range da lista!')
+    else:
+        print(f'A fruta do indice {indice} é {elemeto}')
+    finally:
+        print('\nConcluindo programa!')
+
+seletor()
+
+#Sistema de Login Simples
+# Implemente um sistema de login que solicita um nome de usuário e senha. Se o nome de usuário não existir ou a senha estiver incorreta, lance uma exceção personalizada.
+class UsuarioNotFound(Exception):
+    pass
+
+class IncorrectPassword(Exception):
+    pass
+
+usuarios = {
+    'admin' : 'admin', 
+    'user' : '12345'
+}
+
+def login():
+
+    try:
+        usuario = input('Informe o usuario: ')
+        senha = input('Informe a senha: ')
+
+        if usuario not in usuarios:
+            raise UsuarioNotFound ('Usuario não encontrado!')
+        elif usuarios[usuario] != senha:
+            raise IncorrectPassword ('Senha incorreta!')
+
+    except UsuarioNotFound as e:
+        print(f'Erro: {e}')
+    
+    except IncorrectPassword as e:
+        print(f'Erro: {e}')
+    
+    else:
+        print('Acesso permitido')
+
+login()
+    
