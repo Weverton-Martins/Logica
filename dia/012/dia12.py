@@ -34,7 +34,7 @@ divisorNumero()
 # Crie um programa que solicite ao usuário o nome de um arquivo para leitura. Tente abrir o arquivo e exibir seu conteúdo. Trate erros como arquivo não encontrado e permissão negada.
 
 def aberturaArquivo():
-    nome_arquivo = input('Informe o nome do arquivo')
+    nome_arquivo = input('Informe o nome do arquivo: ')
     try:
         with open(nome_arquivo, 'r') as arquivo: #garantia que seja fechado automaticamente
             conteudo = arquivo.read() #ler o conteudoi
