@@ -11,7 +11,7 @@ orcamento_total = float(input('Informe sua renda disponivel: '))
 produto1 = float(input('Informe o valor do primeiro produto: '))
 produto2 = float(input('Informe o valor do segundo produto: '))
 produto3 = float(input('Informe o valor do terceiro produto: '))
-total = produto1 + produto2 + produto3 #calculo
+total = produto1 + produto2 + produto3 #calculo total
 
 if orcamento_total >= total:
     restante = orcamento_total - total
@@ -35,7 +35,7 @@ rotina = [
         {'dia': 'Segunda', 'foco': 'upper', 'exercicios': 4}
         ]
 
-#função e soma do volume
+# #função e soma do volume
 def calcular_volume(rotina):
     soma_exercicios = 0
     for item in rotina:
@@ -44,3 +44,27 @@ def calcular_volume(rotina):
     print(f'Realizado um rotal de {soma_exercicios} exercicios na semana.')
 
 calcular_volume(rotina)
+
+#Catálogo de Busca (Foco: Dicionários aninhados e Try/Except)
+'''Crie um dicionário chamado catalogo_animes. As chaves principais serão os nomes dos animes. O valor de cada chave será outro dicionário contendo o "genero" e a "nota".
+
+Peça para o usuário digitar o nome de uma obra que ele quer buscar. Bloco try/except.
+'''
+
+#Dicíonario contendo outro dicíonario com valor e chave
+catalogo_animes = {'Cyberpunk Edgerunners': {'Genero': 'Ficção Científica', 'Nota': 9.5},
+                   'My Hero Academia':{'Genero': 'Ação', 'Nota': 10},
+                   'Haikyuu': {'Genero': 'Esporte', 'Nota': 9.8},
+                   'Black Clover': {'Genero': 'Fantasia', 'Nota': 8.9}
+                   }
+
+obra = input('Digite o nome da obra: ')
+
+#desmembrando o dicionário pra facilitar na busca 
+try:
+    busca_1 = catalogo_animes[obra]['Genero']
+    busca_2 = catalogo_animes[obra]['Nota']
+    print(f'O anime é de {busca_1} e com nota {busca_2}')
+
+except KeyError:
+    print('Esse titulo ainda não está disponivel no sistema!')
