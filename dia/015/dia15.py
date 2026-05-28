@@ -30,13 +30,13 @@ carro2.frear(30)        # Saída: O carro está agora a 70 km/h.
 class retangulo:
 
     def __init__(self, altura, base):
-        self.altura = altura
-        self.base = base
+        self.altura = altura #atributos
+        self.base = base #atributos
         
-    def area(self):
+    def area(self): #metodo
         return self.base * self.altura
 
-    def perimetro(self):
+    def perimetro(self): #metodo
         return 2*(self.base+self.altura)
 
 medidas = retangulo(10, 5)
@@ -47,20 +47,21 @@ print(f'O perimetro do retangulo é {medidas.perimetro()}')
 
 class Aluno:
 
-    def __init__(self, nome):
+    def __init__(self, nome): #MÉTODO CONSTRUTOR
         self.nome = nome
         self.notas = []
 
-    def adiciona_nota(self, nota):
+    def adiciona_nota(self, nota): #MÉTODO
         self.notas.append(nota)
 
-    def calcular_media(self):
+    def calcular_media(self): #MÉTODO
         if self.notas:
             return sum(self.notas)/len(self.notas)
         else:
             return 0
-
+#INSTANCIAÇÃO criando um OBJETO real a partir do molde 'Aluno'
 aluno1 = Aluno('Weverton')
+#CHAMANDO MÉTODOS
 aluno1.adiciona_nota(10)
 aluno1.adiciona_nota(9)
 aluno1.adiciona_nota(5)
