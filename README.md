@@ -1,2 +1,2 @@
 # Logica
- Método Mente Lógica
+ Método Mente Lógica, exercícios  feitos a cada dia de estudo!
