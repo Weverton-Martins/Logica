@@ -22,7 +22,7 @@ carro2 = Carro('Fiat', 'Punto T-jet', 2010)
 #usar o metodo
 carro1.acelerar(50)     # Saída: O carro está agora a 50 km/h.
 carro2.acelerar(100)
-carro2.frear(30)        # Saída: O carro está agora a 70 km/h.
+carro2.frear(30)      # Saída: O carro está agora a 70 km/h.
 
 
 #Crie uma classe Retangulo que representa um retângulo, com os atributos largura e altura. Inclua os métodos: area e perimetro
@@ -108,9 +108,75 @@ class Calculadora:
             print('Erro: Divbisão por zero')
             return None
 
-valores = Calculadora(10,0)
+valores = Calculadora(10,5)
 print(f'\nOs calculos de {valores.a} e {valores.b} são: ')
 print(f'Resultado soma: {valores.somar()}')
 print(f'Resultado subtrair: {valores.subtrair()}')
 print(f'Resultado multiplicar: {valores.multiplicar()}')
 print(f'Resultado dividir: {valores.dividir()}')
+
+#Ficha de Treino Upper/Lower (Foco em Classes, Atributos e Métodos)
+
+class Exercicio:
+
+    def __init__(self, nome, num_series, num_repeticao, carga):
+        self.nome = nome
+        self.num_series = num_series
+        self.num_repeticao = num_repeticao
+        self.carga = carga
+    
+    def resumo(self):
+        print(f'\nAnotações: {self.nome}: {self.num_series} series de {self.num_repeticao} reps com {self.carga}Kg')
+
+    def aumentar_cargas(self, valor):
+        self.carga += valor
+        return self.carga
+
+
+dia1 = Exercicio('Supino', 4, 10, 50)
+dia1.resumo()
+dia2 = Exercicio('Agachamento', 2, 8, 90)
+dia2.resumo()
+dia3 = Exercicio('Terra', 2, 6, 160)
+dia3.resumo()
+print(f'Carga aumentada no {dia1.nome} pra {dia1.aumentar_cargas(50)}kg')
+dia1.resumo()
+
+#Monitoramento Blue Team (Foco em Composição e Lógica)
+
+class AlertaSeguranca:
+
+    def __init__(self, ip_origem, tipo_ataque, severidade):
+        self.ip_origem = ip_origem
+        self.tipo_ataque = tipo_ataque
+        self.severidade = severidade
+
+
+class DashboardSOC:
+
+    def __init__(self):
+        self.alerta = []
+    
+    def registrar_alerta(self, novo_alerta):
+        self.alerta.append(novo_alerta)
+
+    def filtrar_criticos(self):
+        for i in self.alerta:
+            if i.severidade > 7:
+                print(f'\nCritíco: Nivel {i.severidade} | Ataque: {i.tipo_ataque} | Ip de origem{i.ip_origem}')
+
+# Criando 3 alertas simulados
+alerta1 = AlertaSeguranca("192.168.0.15", "Brute Force SSH", 9)
+alerta2 = AlertaSeguranca("10.0.0.5", "Port Scan", 4)
+alerta3 = AlertaSeguranca("172.16.2.100", "Ransomware Detectado", 10)
+
+# Iniciando o Dashboard
+meu_painel = DashboardSOC()
+
+# Injetando os alertas para dentro do Dashboard
+meu_painel.registrar_alerta(alerta1)
+meu_painel.registrar_alerta(alerta2)
+meu_painel.registrar_alerta(alerta3)
+
+# Rodando a função de filtro
+meu_painel.filtrar_criticos()
