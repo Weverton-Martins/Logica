@@ -1,13 +1,13 @@
 #Teste e Debugging 
 
 #Crie uma função que multiplica dois números, mas introduza um erro intencional. Use técnicas de depuração para identificar e corrigir o erro.
-'''import pdb
+import pdb
 def multiplicar(a,b):
     pdb.set_trace()
     return a * c # Erro: variável 'c' não definida
 
 resultado= multiplicar(4,5)
-print(resultado)'''
+print(resultado)
 
 #Crie uma função que soma dois números e escreva testes unitários para verificar seu funcionamento.
 import unittest
